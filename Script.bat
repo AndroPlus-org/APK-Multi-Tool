@@ -270,13 +270,13 @@ FOR %%F IN (place-apk-here-for-modding/*.apk) DO (
 set /A count+=1
 set a!count!=%%F
 IF /I !count! LEQ 9 (ECHO ^- !count!  - %%F )
-IF /I !count! GTR 10 (ECHO ^- !count! - %%F )
+IF /I !count! GTR 9 (ECHO ^- !count! - %%F )
 )
 FOR %%F IN (place-apk-here-for-modding/*.jar) DO (
 set /A count+=1
 set a!count!=%%F
 IF /I !count! LEQ 9 (ECHO ^- !count!  - %%F )
-IF /I !count! GTR 10 (ECHO ^- !count! - %%F )
+IF /I !count! GTR 9 (ECHO ^- !count! - %%F )
 )
 ECHO.
 ECHO Choose the file to be set as current project?
@@ -811,10 +811,7 @@ cd ..
 PAUSE
 goto restart
 :apksignerkey
-ECHO *Notice this option requires you to have the Java JDK installed before this option will function*
-ECHO *Notice you need to go into your Environment Variables and set the path to your JAVA_HOME*
-ECHO *For example define it as C:\Program Files\Java\jdk1.6.0_43 as a system variables slot not the User Variables*
-PAUSE
+cls
 cd other
 ECHO Signing Apk
 set KEYSTORE_FILE=apksigner.keystore
@@ -822,11 +819,24 @@ set KEYSTORE_PASS=apksigner
 set KEYSTORE_ALIAS=apksigner.keystore
 set JAVAC_PATH=%JAVA_HOME%\bin\
 set PATH=%PATH%;%JAVAC_PATH%;
-call jarsigner -keystore %KEYSTORE_FILE% -storepass %KEYSTORE_PASS% -keypass %KEYSTORE_PASS% -signedjar %~dp0place-apk-here-for-signing/signed%capp% %~dp0place-apk-here-for-signing/unsigned%capp%  %KEYSTORE_ALIAS% %1
-IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO *Notice this option requires you to have the Java JDK installed before this option will function*
+ECHO *Notice you need to go into your Environment Variables and set the path to your JAVA_HOME*
+ECHO *For example define it as C:\Program Files\Java\jdk1.6.0_43 as a system variables slot not the User Variables*
+ECHO Current value JAVA_HOME = %JAVA_HOME%
 PAUSE
+echo call jarsigner -keystore %KEYSTORE_FILE% -storepass %KEYSTORE_PASS% -keypass %KEYSTORE_PASS% -signedjar %~dp0place-apk-here-for-signing\signed%capp% %~dp0place-apk-here-for-signing\unsigned%capp% %KEYSTORE_ALIAS% %1 > jarsign.bat
+call jarsigner -keystore %KEYSTORE_FILE% -storepass %KEYSTORE_PASS% -keypass %KEYSTORE_PASS% -signedjar %~dp0place-apk-here-for-signing\signed%capp% %~dp0place-apk-here-for-signing\unsigned%capp% %KEYSTORE_ALIAS% %1
+IF errorlevel 1 (
+ECHO.
+ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO.
 )
+ELSE (
+ECHO.
+ECHO "Signing completed"
+ECHO.
+)
+PAUSE
 
 DEL /Q "%~dp0place-apk-here-for-signing/unsigned%capp%"
 cd ..
