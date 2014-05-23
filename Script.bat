@@ -10,9 +10,9 @@ Script 0 2>> APK-Multi-Tool.log
 :error
 :skipme
 cd "%~dp0"
-mode con:cols=140 lines=50
+mode con:cols=140 lines=40
 CLS
-set usrc=9
+set usrc=0
 set resusrc=0
 set dec=0
 set capp=None
@@ -64,7 +64,7 @@ ECHO *  Windows Testers:                                                        
 ECHO ***************************************************************************************
 ECHO *  Goes to Purian23 and sga999                                                        *
 ECHO ***************************************************************************************
-PAUSE
+ECHO PAUSE
 CLS
 :restart
 IF %dec%==0 (set decs=Sources and Resources Files)
@@ -75,51 +75,44 @@ cd "%~dp0"
 set menunr=GARBAGE
 CLS
 ECHO  --------------------------------------------------------------------------------------------------------------------------
-ECHO ^| Compression-Level: %usrc% ^| Resources.arsc Compression-Level: %resusrc% ^| Heap Size: %heapy%mb ^|  
+ECHO ^| 圧縮レベル: %usrc% ^| Resources.arsc圧縮レベル: %resusrc% ^| ヒープサイズ: %heapy%mb ^|  
 ECHO  --------------------------------------------------------------------------------------------------------------------------
-ECHO ^| Decompile : %decs% ^| Current-App: %capp% ^|
+ECHO ^| デコンパイル : %decs% ^| 現在のプロジェクト: %capp% ^|
 ECHO  --------------------------------------------------------------------------------------------------------------------------
 ECHO                                                    HTTP://APKMULTITOOL.COM
 ECHO  ----------------------------------         ------------------------------------        -----------------------------------
-ECHO  Simple Tasks Such As Image Editing         Advanced Tasks Such As Code Editing         Themers Conversion Tools
+ECHO  画像編集などシンプルなタスク               コード編集など高度なタスク                  テーマー向けのツール
 ECHO  ----------------------------------         ------------------------------------        -----------------------------------
-ECHO  0    Adb pull                              9    Decompile apk                          16   Batch Theme Image Transfer
-ECHO  1    Extract apk                           10   Decompile apk (with dependencies)          (Read the Instructions before
-ECHO  2    Optimize images inside                     (For proprietary ROM apks)                    using this feature)
-ECHO  3    Zip apk                               11   Compile System APK files               17   Batch Decompile apk Files                  
-ECHO  4    Sign apk with Testkeys (Dont          12   Compile Non-System APK Files           18   Batch Compile apk Files                          
-ECHO       do this IF its a system apk)          13   Sign apk with Android Market 
-ECHO  5    Zipalign apk (Do once apk is               supported Key (Requires the JAVA 
-ECHO       created/signed)                            JDK to be installed)
-ECHO  6    Install apk (Dont do this IF          14   Install apk
-ECHO       system apk, do adb push)              15   Compile apk / Sign apk / Install apk
-ECHO  7    Zip / Sign / Install apk                   (Non-System Apps Only)
-ECHO       (All in one step)
-ECHO  8    Adb push (Only for system apk)
+ECHO  0    adb pull                              9    apkのデコンパイル                      16   テーマ画像一括転送
+ECHO  1    apkの抽出                             10   apkのデコンパイル  (依存関係含め)           (使う前に説明を読んでください)
+ECHO  2    内部画像の最適化                           (プロプライエタリなROM apk向け)
+ECHO  3    apkのzip圧縮                          11   システムapkのコンパイル                17   apkの一括デコンパイル                  
+ECHO  4    テストキーでapkを署名                 12   一般的なapkのコンパイル                18   apkの一括コンパイル                         
+ECHO       (一般的なapk向け)                     13   Playストア対応キーでapkを署名
+ECHO  5    Zipalign apk (apk作成/署名毎に実行)        (JAVA JDK必須)
+ECHO  6    apkのインストール                     14   apkのインストール
+ECHO       (システムapkはadb pushを)             15   apkのコンパイル / 署名 / インストール
+ECHO  7    apkのzip圧縮 / 署名 / インストール         (システムapk以外向け)
+ECHO  8    adb push (システムapk向け)
 ECHO  -----------
-ECHO  tools Stuff
+ECHO  ツール
 ECHO  -----------
-ECHO  19   Batch Optimize Apk (inside place-apk-here-to-batch-optimize only)
-ECHO  20   Sign an apk(Batch support)(inside place-apk-here-for-signing folder only)
-ECHO  21   Batch optimize ogg files (inside place-ogg-here only)
-ECHO  22   Clean Files/Folders
-ECHO  23   Select compression level for apk's
-ECHO  24   Select compression level for Resources.arsc
-ECHO  25   Set Max Memory Size (Only use IF getting stuck at decompiling/compiling)
-ECHO  26   Read Log
-ECHO  27   Set current project
-ECHO  28   About / Tips / Debug Section
-ECHO  29   Switch decompile mode (Allows you to pick to fully decompile the APK's or JAR's
-ECHO       or to just decompile Sources or just the Resources or do a raw dump allowing you
-ECHO       to just edit the normal images)
-ECHO  30   Donations
-ECHO       I would personally like to thank you for your superior generosity and kindness if 
-ECHO       you are one of those droid loving fans donating to the site to help keep us going.
-ECHO       We hope to continue growing and for development to keep getting bigger and bigger
-ECHO       as time goes on. Until then, Hope to see you around! Have a great day!" 
-ECHO  00   Quit
+ECHO  19   apkの一括最適化 (place-apk-here-to-batch-optimizeフォルダ内のみ)
+ECHO  20   apkの署名(一括操作対応)(place-apk-here-for-signingフォルダ内のみ)
+ECHO  21   oggファイルの一括最適化 (place-ogg-hereフォルダ内のみ)
+ECHO  22   ファイルとフォルダの掃除
+ECHO  23   apkの圧縮レベルの選択
+ECHO  24   resources.arscの圧縮レベルの選択
+ECHO  25   最大メモリサイズのセット(デコンパイル/コンパイル中に動作が停止したときだけ変更してください)
+ECHO  26   ログを表示
+ECHO  27   現在のプロジェクトのセット
+ECHO  28   ツール情報/デバッグ情報
+ECHO  29   デコンパイルモードの変更 (APKとJARを完全にデコンパイルする・
+ECHO       ソースだけデコンパイルする・リソースだけデコンパイルする・RAWダンプするの中から選べます)
+ECHO  30   寄付
+ECHO  00   終了
 ECHO  -------------------------------------------------------------------------------
-SET /P menunr=Please make your decision:
+SET /P menunr=数字を入力してください:
 
 IF %menunr%==0 (goto ap)
 IF %menunr%==1 (goto ex)
@@ -156,7 +149,7 @@ IF %menunr%==00 (goto quit)
 IF %capp%==None goto noproj
 
 :WHAT
-ECHO You went crazy and entered something that wasn't part of the menu options
+ECHO メニューにない数字です。
 PAUSE
 goto restart
 :switchc
@@ -164,16 +157,16 @@ set /a dec+=1
 IF (%dec%)==(4) (set /a dec=0)
 goto restart
 :cleanp
-ECHO 1. Clean This Project's Folder
-ECHO 2. Clean All Apk's in Modding Folder
-ECHO 3. Clean All OGG's in OGG Folder
-ECHO 4. Clean All Apk's in Optimize Folder
-ECHO 5. Clean All Apk's in Signing Folder
-ECHO 6. Clean All Projects
-ECHO 7. Clean All Folders/Files
-ECHO 8. Go Back To MAIN MENU
-SET /P menuna=Please make your decision:
-ECHO Clearing Directories
+ECHO 1. このプロジェクトのフォルダを掃除
+ECHO 2. place-apk-here-for-moddingフォルダを掃除
+ECHO 3. place-ogg-hereフォルダを掃除
+ECHO 4. place-apk-here-to-batch-optimizeフォルダを掃除
+ECHO 5. place-apk-here-for-signingフォルダを掃除
+ECHO 6. projectsフォルダを掃除
+ECHO 7. 全てのファイル/フォルダを掃除
+ECHO 8. メインメニューに戻る
+SET /P menuna=数字を入力してください:
+ECHO 掃除中
 IF %menuna%==1 (
 IF %capp%==None goto noproj
 rmdir /S /Q %userprofile%\apktool > nul
@@ -254,15 +247,15 @@ ECHO 4. Let the new window run for 10 seconds, then close it
 ECHO Once done, you will find a adblog.txt in the root folder
 ECHO Upload that as well.
 ECHO.
-ECHO 1. Create log
-ECHO 2. Go back to MAIN MENU
-SET /P menunr=Please make your decision:
+ECHO 1. ログを作成
+ECHO 2. メインメニューに戻る
+SET /P menunr=数字を入力してください:
 IF %menunr%==1 (Start "Adb Log" other\signer 2)
 goto restart
 :portapk
-ECHO I'm going to try resigning the apk and see IF that works
-ECHO Did it successfully install (y/n) ^?
-ECHO Ok, lets try looking through for any shared uid, IF i find any i will remove them
+ECHO apkを再署名して動作するか確認します。
+ECHO インストールできましたか (y/n) ^?
+ECHO shared uidを探し、もしあれば削除します。
 :filesel
 CLS
 set /A count=0
@@ -279,8 +272,8 @@ IF /I !count! LEQ 9 (ECHO ^- !count!  - %%F )
 IF /I !count! GTR 10 (ECHO ^- !count! - %%F )
 )
 ECHO.
-ECHO Choose the file to be set as current project?
-set /P INPUT=Enter It's Number: %=%
+ECHO 現在のプロジェクトとしてセットするファイルを選んでください。
+set /P INPUT=数字を入力: %=%
 IF /I %INPUT% GTR !count! (goto chc)
 IF /I %INPUT% LSS 1 (goto chc)
 set capp=!a%INPUT%!
@@ -293,17 +286,17 @@ set capp=None
 goto restart
 
 :heap
-set /P INPUT=Enter max size for java heap space in megabytes (eg 512) : %=%
+set /P INPUT=Javaヒープサイズの最大数をメガバイトで入力してください (例: 512) : %=%
 set heapy=%INPUT%
 CLS
 goto restart
 :usrcomp
-set /P INPUT=Enter Compression Level (0-9) : %=%
+set /P INPUT=圧縮レベルを入力してください(0-9) : %=%
 set usrc=%INPUT%
 CLS
 goto restart
 :resusrcomp
-set /P INPUT=Enter Compression Level (0-9) : %=%
+set /P INPUT=圧縮レベルを入力してください(0-9) : %=%
 set resusrc=%INPUT%
 CLS
 goto restart
@@ -352,7 +345,7 @@ IF NOT EXIST "%~dp0projects\%capp%" GOTO dirnada
 CLS
 ECHO 1 System apk (Retains signature)
 ECHO 2 Regular apk (Removes signature for re-signing)
-SET /P menunr=Please make your decision: 
+SET /P menunr=数字を入力してください: 
 IF %menunr%==1 (goto sys1)
 IF %menunr%==2 (goto oa1)
 :sys1
@@ -360,7 +353,7 @@ ECHO Zipping Apk
 cd other
 7za a -tzip "%~dp0place-apk-here-for-signing/unsigned%capp%" "%~dp0projects/%capp%/*" -mx%usrc%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 cd ..
@@ -371,7 +364,7 @@ ECHO Zipping Apk
 rmdir /S /Q "%~dp0out/META-INF"
 7za a -tzip "%~dp0place-apk-here-for-signing/unsigned%capp%" "%~dp0projects/%capp%/*" -mx%usrc%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 cd ..
@@ -380,7 +373,7 @@ cd other
 ECHO Signing Apk
 java -Xmx%heapy%m -jar signapk.jar -w testkey.x509.pem testkey.pk8 %~dp0place-apk-here-for-signing/unsigned%capp% %~dp0place-apk-here-for-signing/signed%capp%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 DEL /Q "%~dp0place-apk-here-for-signing/unsigned%capp%"
@@ -391,7 +384,7 @@ ECHO Waiting for device
 ECHO Installing Apk
 "%~dp0other\adb.exe" install -r %~dp0place-apk-here-for-signing/signed%capp%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 goto restart
@@ -450,11 +443,11 @@ goto restart
 :ap
 ECHO Where do you want adb to pull the apk from? 
 ECHO Example of input : /system/app/launcher.apk
-set /P INPUT=Type input: %=%
+set /P INPUT=入力してください: %=%
 ECHO Pulling apk
 "%~dp0other\adb.exe" pull %INPUT% "%~dp0place-apk-here-for-modding\something.apk"
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 goto restart
 )
@@ -464,14 +457,14 @@ IF "!INPUT:%ext%=!" NEQ "%INPUT%" set jar=1
 :renameagain
 ECHO What file name would you like this app to be stored as ?
 ECHO Eg (launcher.apk)
-set /P INPUT=Type input: %=%
+set /P INPUT=入力してください: %=%
 IF EXIST "%~dp0place-apk-here-for-modding\%INPUT%" (
 ECHO File Already Exists, Try Another Name
 PAUSE
 goto renameagain)
 rename "%~dp0place-apk-here-for-modding\something.apk" %INPUT%
 ECHO Would you like to set this as your current project (y/n)?
-set /P inab=Type input: %=%
+set /P inab=入力してください: %=%
 IF %inab%==y (set capp=%INPUT%)
 goto restart
 :apu
@@ -479,7 +472,7 @@ ECHO Do you want to keep the file name ? (any key for yes, n for no)
 set /p INPUT=""
 if %INPUT%==n (
 ECHO "Enter the new name: "
-set /P newcapp=Type input: %=%
+set /P newcapp=入力してください: %=%
 set newname=1
 goto push_dir
 )
@@ -516,7 +509,7 @@ goto push_dir
 
 :chk_err_push
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 goto restart
@@ -527,7 +520,7 @@ IF EXIST "%~dp0place-apk-here-for-signing\signed%capp%" ("%~dp0other\zipalign.ex
 IF EXIST "%~dp0place-apk-here-for-signing\unsigned%capp%" ("%~dp0other\zipalign.exe" -f 4 "%~dp0place-apk-here-for-signing\unsigned%capp%" "%~dp0place-apk-here-for-signing\unsignedaligned%capp%")
 
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 DEL /Q "%~dp0place-apk-here-for-signing\signed%capp%"
@@ -541,7 +534,7 @@ ECHO Extracting apk
 IF EXIST "%~dp0projects/%capp%" (rmdir /S /Q "%~dp0projects/%capp%")
 7za x -o"%~dp0projects/%capp%" "%~dp0place-apk-here-for-modding/%capp%"
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 cd ..
@@ -551,7 +544,7 @@ IF NOT EXIST "%~dp0projects\%capp%" GOTO dirnada
 CLS
 ECHO 1 System apk (Retains signature)
 ECHO 2 Regular apk (Removes signature for re-signing)
-SET /P menunr=Please make your decision: 
+SET /P menunr=数字を入力してください: 
 IF %menunr%==1 (goto sys)
 IF %menunr%==2 (goto oa)
 :sys
@@ -559,7 +552,7 @@ ECHO Zipping Apk
 cd other
 7za a -tzip "%~dp0place-apk-here-for-signing/unsigned%capp%" "%~dp0projects/%capp%/*" -mx%usrc%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 
@@ -571,7 +564,7 @@ ECHO Zipping Apk
 rmdir /S /Q "%~dp0out/META-INF"
 7za a -tzip "%~dp0place-apk-here-for-signing/unsigned%capp%" "%~dp0projects/%capp%/*" -mx%usrc%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 
@@ -581,24 +574,24 @@ goto restart
 cd other
 IF EXIST "%~dp0place-apk-here-for-signing\unsigned%capp%" (del /Q "%~dp0place-apk-here-for-signing\unsigned%capp%")
 :temr
-ECHO Drag the dependee apk in this window or type its path
-ECHO Example to decompile Rosie.apk, drag com.htc.resources.apk in this window
-set /P INPUT=Type input: %=%
+ECHO 依存関係にあるapkをドラッグ＆ドロップするかそのパスを入力してください。
+ECHO 例えばRosie.apkをデコンパイルするにはcom.htc.resources.apkをドラッグ＆ドロップします。
+set /P INPUT=入力してください: %=%
 java -jar apktool.jar IF %INPUT%
 IF NOT EXIST "%userprofile%\apktool\framework\2.apk" (
 ECHO.
-ECHO "Sorry thats not the dependee apk, try again"
+ECHO "依存関係ではありません、他のapkをお試しください"
 goto temr
 )
-IF (%jar%)==(0) (ECHO Decompiling Apk %decs%)
-IF (%jar%)==(1) (ECHO Decompiling Jar %decs%)
+IF (%jar%)==(0) (ECHO apkのデコンパイル中 %decs%)
+IF (%jar%)==(1) (ECHO jarのデコンパイル中 %decs%)
 IF (%dec%)==(0) (java -Xmx%heapy%m -jar apktool.jar d %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 IF (%dec%)==(1) (java -Xmx%heapy%m -jar apktool.jar d -r %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 IF (%dec%)==(2) (java -Xmx%heapy%m -jar apktool.jar d -s %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 IF (%dec%)==(3) (java -Xmx%heapy%m -jar apktool.jar d -r -s %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 cd ..
@@ -610,24 +603,24 @@ IF EXIST "%~dp0place-apk-here-for-signing/unsigned%capp%" (del /Q "%~dp0place-ap
 IF EXIST "%~dp0place-apk-here-for-signing/signed%capp%" (del /Q "%~dp0place-apk-here-for-signing\signed%capp%")
 
 IF EXIST "%~dp0projects/%capp%" (rmdir /S /Q "%~dp0projects/%capp%")
-IF (%jar%)==(0) (ECHO Decompiling Apk %decs%)
-IF (%jar%)==(1) (ECHO Decompiling Jar %decs%)
+IF (%jar%)==(0) (ECHO apkのデコンパイル中 %decs%)
+IF (%jar%)==(1) (ECHO jarのデコンパイル中 %decs%)
 IF (%dec%)==(0) (java -Xmx%heapy%m -jar apktool.jar d %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 IF (%dec%)==(1) (java -Xmx%heapy%m -jar apktool.jar d -r %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 IF (%dec%)==(2) (java -Xmx%heapy%m -jar apktool.jar d -s %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 IF (%dec%)==(3) (java -Xmx%heapy%m -jar apktool.jar d -r -s %~dp0place-apk-here-for-modding/%capp% -o %~dp0projects/%capp%)
 
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 cd ..
 goto opeproj
 :opeproj
 CLS
-ECHO %capp% has finished decompiling. Would you like to open the projects\%capp% folder to begin editing?
-ECHO (Y)es or (N)o?
-set /P INPUT1=Type input: %=%
+ECHO %capp% のデコンパイルが完了しました。projects\%capp%フォルダを開きますか?
+ECHO (Y)はい (N)いいえ
+set /P INPUT1=入力してください: %=%
 IF %INPUT1%==y (call :opeproj01)
 IF %INPUT1%==n (call :opeproj02)
 :opeproj01
@@ -638,8 +631,8 @@ goto restart
 :syscom
 IF NOT EXIST "%~dp0projects\%capp%" GOTO dirnada
 cd other
-IF (%jar%)==(0) (ECHO Building Apk)
-IF (%jar%)==(1) (ECHO Building Jar)
+IF (%jar%)==(0) (ECHO apkのビルド中)
+IF (%jar%)==(1) (ECHO jarのビルド中)
 mkdir modified-system-apk-files-here
 IF EXIST "%~dp0modified-system-apk-files-here\system%capp%" (del /Q "%~dp0modified-system-apk-files-here\system%capp%")
 java -Xmx%heapy%m -jar apktool.jar b "%~dp0projects/%capp%" -o "%~dp0modified-system-apk-files-here\system%capp%"
@@ -651,30 +644,25 @@ goto restart
 
 :nojar
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 goto restart
 )
 :nq1
-ECHO Aside from the signatures, would you like to copy
-ECHO over any additional files that you did not modify
-ECHO from the original apk in order to ensure least 
-ECHO # of errors ^(y/n^)
-set /P INPUT1=Type input: %=%
+ECHO エラーを防止するため元のapkから
+ECHO 編集していないファイルをコピーしますか"?^(y/n^)
+set /P INPUT1=入力してください: %=%
 IF %INPUT1%==y (call :syscom01)
 IF %INPUT1%==n (call :syscom02)
 :syscom01
 rmdir /S /Q "%~dp0keep"
 7za x -o"%~dp0keep" "%~dp0place-apk-here-for-modding/%capp%"
-ECHO In the APK Multi-Tools folder you will find
-ECHO a keep folder. Within it, delete 
-ECHO everything you have modified and leave
-ECHO files that you have not. IF you have modified
-ECHO any xml, then delete resources.arsc from that 
-ECHO folder as well as if you have edited any of 
-ECHO the smali files you will also want to delete
-ECHO the classes.dex.
-ECHO Once done then press enter on this script.
+ECHO APK Multi-Toolsフォルダにkeepフォルダを作成しました。
+ECHO 編集したファイルを削除し、編集していないファイルは
+ECHO そのままにしてください。
+ECHO xmlファイルを編集した場合はresources.arscを削除し、
+ECHO smaliファイルを編集した場合はclasses.dexを削除してください。
+ECHO 完了したらEnterキーを押してください。
 PAUSE
 7za a -tzip "%~dp0modified-system-apk-files-here/system%capp%" "%~dp0keep/*" -mx%usrc% -r
 rmdir /S /Q "%~dp0keep"
@@ -690,9 +678,9 @@ rmdir /S /Q "%~dp0projects/temp"
 goto syscom03
 :syscom03
 CLS
-ECHO Would you like to copy over the AndroidManifest.xml from the original %capp%"?
-ECHO (Y)ES or (N)O?
-set /P INPUT1=Type input: %=%
+ECHO AndroidManifest.xmlを元の%capp%"からコピーしますか?
+ECHO (Y)はい (N)いいえ
+set /P INPUT1=入力してください: %=%
 IF %INPUT1%==y (call :syscom04)
 IF %INPUT1%==n (call :syscom05)
 :syscom04
@@ -718,23 +706,23 @@ goto restart
 
 :nojar2
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 goto restart
 )
 :nq4
 CLS
 ECHO  ---------------------------------------------------------------------------
-ECHO 1. Create an unsigned apk using the keep folder option
-ECHO 2. Create an unsigned apk using the original AndroidManifest.xml
-ECHO 3. Create an unsigned apk
-ECHO *Notice* Options 4-6 are experimental use with care *Notice*
-ECHO 4. Create an apk using the original Signature using the keep folder option
-ECHO 5. Create an apk using the original Signature
-ECHO 6. Create an apk using the original Signature and original AndroidManifest.xml
-ECHO *Notice* Options 4-6 are experimental use with care *Notice*
+ECHO 1. keepフォルダオプションを使って未署名のapkを作成
+ECHO 2. 元のAndroidManifest.xmlを使って未署名のapkを作成
+ECHO 3. 未署名のapkを作成
+ECHO *注意* オプション4-6は実験的なので注意してください *注意*
+ECHO 4. keepフォルダオプションを使って元の署名を使ったapkを作成
+ECHO 5. 元の署名を使ったapkを作成
+ECHO 6. 元の署名とAndroidManifest.xmlを使ったapkを作成
+ECHO *注意* オプション4-6は実験的なので注意してください *注意*
 ECHO  ---------------------------------------------------------------------------
-set /P INPUT=Type input 1 - 6: %=%
+set /P INPUT=1 - 6のどれかを入力してください: %=%
 IF %INPUT%==1 (call :unsign01)
 IF %INPUT%==2 (call :unsign02)
 IF %INPUT%==3 (call :unsign03)
@@ -745,15 +733,12 @@ IF %INPUT%==6 (call :sign03)
 rmdir /S /Q "%~dp0keep"
 7za x -o"%~dp0keep" "%~dp0place-apk-here-for-modding/%capp%"
 rmdir /S /Q "%~dp0keep/META-INF/"
-ECHO In the APK Multi-Tools folder you will find
-ECHO a keep folder. Within it, delete 
-ECHO everything you have modified and leave
-ECHO files that you have not. IF you have modified
-ECHO any xml, then delete resources.arsc from that 
-ECHO folder as well as if you have edited any of 
-ECHO the smali files you will also want to delete
-ECHO the classes.dex.
-ECHO Once done then press enter on this script.
+ECHO APK Multi-Toolsフォルダにkeepフォルダを作成しました。
+ECHO 編集したファイルを削除し、編集していないファイルは
+ECHO そのままにしてください。
+ECHO xmlファイルを編集した場合はresources.arscを削除し、
+ECHO smaliファイルを編集した場合はclasses.dexを削除してください。
+ECHO 完了したらEnterキーを押してください。
 PAUSE
 7za a -tzip "%~dp0place-apk-here-for-signing/unsigned%capp%" "%~dp0keep/*" -mx%usrc% -r
 rmdir /S /Q "%~dp0keep"
@@ -773,15 +758,12 @@ goto restart
 :sign01
 rmdir /S /Q "%~dp0keep"
 7za x -o"%~dp0keep" "%~dp0place-apk-here-for-modding/%capp%"
-ECHO In the APK Multi-Tools folder you will find
-ECHO a keep folder. Within it, delete 
-ECHO everything you have modified and leave
-ECHO files that you have not. IF you have modified
-ECHO any xml, then delete resources.arsc from that 
-ECHO folder as well as if you have edited any of 
-ECHO the smali files you will also want to delete
-ECHO the classes.dex.
-ECHO Once done then press enter on this script.
+ECHO APK Multi-Toolsフォルダにkeepフォルダを作成しました。
+ECHO 編集したファイルを削除し、編集していないファイルは
+ECHO そのままにしてください。
+ECHO xmlファイルを編集した場合はresources.arscを削除し、
+ECHO smaliファイルを編集した場合はclasses.dexを削除してください。
+ECHO 完了したらEnterキーを押してください。
 PAUSE
 7za a -tzip "%~dp0place-apk-here-for-signing/unsigned%capp%" "%~dp0keep/*" -mx%usrc% -r
 rmdir /S /Q "%~dp0keep"
@@ -811,12 +793,13 @@ cd ..
 PAUSE
 goto restart
 :apksignerkey
-ECHO *Notice this option requires you to have the Java JDK installed before this option will function*
-ECHO *Notice you need to go into your Environment Variables and set the path to your JAVA_HOME*
-ECHO *For example define it as C:\Program Files\Java\jdk1.6.0_43 as a system variables slot not the User Variables*
+ECHO *この機能を使うにはJava JDKをしていないといけません。*
+ECHO *また、環境変数JAVA_HOMEの設定も必要です。バージョンやフォルダ名によって変わりますが、*
+ECHO *例えばC:\Program Files\Java\jdk1.6.0_43とシステム環境変数に設定してください。*
+ECHO *詳しい設定方法は検索してください。*
 PAUSE
 cd other
-ECHO Signing Apk
+ECHO apkの署名中
 set KEYSTORE_FILE=apksigner.keystore
 set KEYSTORE_PASS=apksigner
 set KEYSTORE_ALIAS=apksigner.keystore
@@ -824,7 +807,7 @@ set JAVAC_PATH=%JAVA_HOME%\bin\
 set PATH=%PATH%;%JAVAC_PATH%;
 call jarsigner -keystore %KEYSTORE_FILE% -storepass %KEYSTORE_PASS% -keypass %KEYSTORE_PASS% -signedjar %~dp0place-apk-here-for-signing/signed%capp% %~dp0place-apk-here-for-signing/unsigned%capp%  %KEYSTORE_ALIAS% %1
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 
@@ -833,10 +816,10 @@ cd ..
 goto restart
 :stki
 cd other
-ECHO Signing Apk
+ECHO apkの署名中
 java -Xmx%heapy%m -jar signapk.jar -w testkey.x509.pem testkey.pk8 %~dp0place-apk-here-for-signing/unsigned%capp% %~dp0place-apk-here-for-signing/signed%capp%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 
@@ -844,62 +827,62 @@ DEL /Q "%~dp0place-apk-here-for-signing/unsigned%capp%"
 cd ..
 goto restart
 :ins
-ECHO Waiting for device
+ECHO 端末を待機中
 "%~dp0other\adb.exe" wait-for-device
-ECHO Installing Apk
+ECHO apkのインストール中
 "%~dp0other\adb.exe" install -r place-apk-here-for-signing/signed%capp%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 goto restart
 :all
 IF NOT EXIST "%~dp0projects\%capp%" GOTO dirnada
 cd other
-ECHO Building Apk
+ECHO apkのビルド中
 IF EXIST "%~dp0place-apk-here-for-signing\unsigned%capp%" (del /Q "%~dp0place-apk-here-for-signing\unsigned%capp%")
 java -Xmx%heapy%m -jar apktool.jar b "%~dp0projects/%capp%" "%~dp0place-apk-here-for-signing\unsigned%capp%"
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 goto restart
 )
-ECHO Signing Apk
+ECHO apkの署名中
 java -Xmx%heapy%m -jar signapk.jar -w testkey.x509.pem testkey.pk8 %~dp0place-apk-here-for-signing/unsigned%capp% %~dp0place-apk-here-for-signing/signed%capp%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 DEL /Q "%~dp0place-apk-here-for-signing/unsigned%capp%"
 cd ..
-ECHO Waiting for device
+ECHO 端末を待機中
 "%~dp0other\adb.exe" wait-for-device
-ECHO Installing Apk
+ECHO apkのインストール中
 "%~dp0other\adb.exe" install -r place-apk-here-for-signing/signed%capp%
 IF errorlevel 1 (
-ECHO "An Error Occurred, Please Check The Log (option 26)"
+ECHO "エラーが起きました。ログを確認してください。(オプション26)"
 PAUSE
 )
 goto restart
 :errjava
 CLS
-ECHO Java was not found, you will not be able to sign apks or use apktool
+ECHO Javaが見つからないため署名できません。
 PAUSE
 goto restart
 :erradb
 CLS
-ECHO Adb was not found, you will not be able to manipulate the files on your phone
+ECHO adbが見つからないため端末の操作はできません。
 PAUSE
 goto restart
 goto skipme2
 :adbi
 mode con:cols=48 lines=8
-ECHO Waiting for device
+ECHO 端末を待機中
 "%~dp0other\adb.exe" wait-for-device
 set count=0
 :loop
 IF "%~n1"=="" goto :endloop
-ECHO Installing %~n1
+ECHO %~n1をインストール中
 "%~dp0other\adb.exe" install -r %1
 shift
 set /a count+=1
@@ -921,11 +904,11 @@ cls
 goto restart
 :logr
 cd other
-Start "Read The Log - Main script is still running, close this to return" signer 1
+Start "ログを見てください - メインスクリプトがまだ実行中です" signer 1
 goto restart
 :endab
 cd ..
-@ECHO Optimization complete for %~1
+@ECHO 最適化完了 %~1
 PAUSE
 
 :quit
