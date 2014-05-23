@@ -19,42 +19,39 @@ set menunr=GARBAGE
 cls
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO *                         APK MULTI-TOOL SETUP FILE                               *
+ECHO *                         APK MULTI-TOOLセットアップ                              *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 1. Check for update                                                             *
+ECHO * 1. 更新の確認 (元の英語版)                                                      *
 ECHO *    This Will Check if there is a update to the main program                     *
 ECHO *    For  this option is not functional please visit                              *
 ECHO *    http://apkmultitool.com for updates                                          *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 2. Installing Framework-Res                                                     *
-ECHO *    This Will install one of the Framwork-Res Files for 1.x/2.x/3.x/4.x          *
-ECHO *    This Feature also will install any of the other Dependencies needed          *
-ECHO *    In order to use this feature make sure to drop all of the needed files       *
-ECHO *    into the other Folder or else this script will not find them                 *
+ECHO * 2. Framework-Res等のインストール                                                *
+ECHO *    Framwork-Resファイルや特定の端末に必要なファイルをインストールします。       *
+ECHO *    ファイルはotherフォルダに入れてください。                                    *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 3. Setup Directories                                                            *
-ECHO *    This will setup the appropriate directories needed by Apk Multi-Tools        *
-ECHO *    (This script only needs to be ran for first time users do not use if your    * 
-ECHO *     Just updating from previous Version)                                        *
+ECHO * 3. フォルダのセットアップ                                                       *
+ECHO *    Apk Multi-Toolsに必要なフォルダを作成します。                                *
+ECHO *    (初回起動時のみ必要)                                                         * 
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO *                                 MISC Stuff                                      *
+ECHO *                                 その他                                          *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO *  4   Read Log                                                                   *
-ECHO *  5   About / Tips                                                               *
-ECHO *  00  Quit                                                                       *
+ECHO *  4   ログの表示                                                                 *
+ECHO *  5   その他の情報                                                               *
+ECHO *  00  終了                                                                       *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
-SET /P menunr=Please make your decision:
+SET /P menunr=数字を入力してください:
 IF %menunr%==1 (goto CHECKUPDATE)
 IF %menunr%==2 (goto FRAMRES )
 IF %menunr%==3 (goto SETDIR)
@@ -171,7 +168,7 @@ mkdir transferred
 cd "%~dp0"
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO *                         DIRECTORIES SCRIPT COMPLETED                            *
+ECHO *                         フォルダの作成完了                                      *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 PAUSE
@@ -181,38 +178,38 @@ set menunr=GARBAGE2
 cls
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO *                  APK MULTI-TOOL SETUP DEPENDENCY FILES                          *
+ECHO *                  APK MULTI-TOOLファイルのセットアップ                           *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 1. Install framework-res.apk     ^| 2. Install twframework-res.apk               *
+ECHO * 1. framework-res.apkのインストール     ^| 2. twframework-res.apkのインストール   *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 3. Install com.htc.resources.apk ^| 4. Install SystemUI.apk                      *
+ECHO * 3. com.htc.resources.apkのインストール ^| 4. SystemUI.apkのインストール          *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 5. Install SemcGenericUxpRes.apk ^| 6. Install lidroid-res.apk                   *
+ECHO * 5. SemcGenericUxpRes.apkのインストール ^| 6. lidroid-res.apkのインストール       *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 7. Install mediatek-res.apk      ^| 8. Install framework-miui.apk                *
+ECHO * 7. mediatek-res.apkのインストール      ^| 8. framework-miui.apkのインストール    *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 9. Pull Dependencies from Phone                                                 *
+ECHO * 9. 端末から必要なファイルを取り出す                                             *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO * 10. Return to Main Menu                                                         *
+ECHO * 10. メインメニューに戻る                                                        *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
 ECHO *                                                                                 *
-ECHO *  00   Quit                                                                      *
+ECHO *  00   終了                                                                      *
 ECHO *                                                                                 *
 ECHO ***********************************************************************************
-SET /P menunr=Please make your decision:
+SET /P menunr=数字を入力してください:
 IF %menunr%==1 (goto FRAMRES1)
 IF %menunr%==2 (goto FRAMRES2)
 IF %menunr%==3 (goto FRAMRES3)
